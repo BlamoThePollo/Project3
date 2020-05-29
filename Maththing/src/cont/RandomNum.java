@@ -13,12 +13,13 @@ public class RandomNum{
     if player solution = true solution (n1-n1)
         say correct and ++1 the number oc correct solutions
     else
-        say sucks to suck
+        wrong
     */
             // grayed out equations are for addition method this method shwos how to make a
             // a substraction method  and a loop
 
 
+            //INSTANCE VARIABLES
             static int correct = 0;
             static JFrame parent = new JFrame();
 
@@ -27,15 +28,18 @@ public class RandomNum{
             // parse the string into an int
             // for loop to that int
             static int length=-1;
-
+        
             public static void main(String[] a) {
                 while(length==-1)
         {
+            //The first window that opens up
+            //Input window that the user types in how many questions they want to answer
             String lon = JOptionPane.showInputDialog(null, "How many questions do you want to fail?");
             length = Integer.parseInt(CheckStr(lon));
         }
 
-
+        //For timed mode, ends the game when the time is over
+        //When the time ends it shows you what percent you got correct
         for (int time = 1; time <= length; time++) {
             int n = (int) (Math.random() * 2);
             if (n == 1) {
@@ -49,6 +53,7 @@ public class RandomNum{
             }
         }
     }
+    //Addition method that gets two random numbers from 1-9
     public static void addition(int time)
     {
         int n1 = (int)(Math.random()*10);
@@ -56,7 +61,7 @@ public class RandomNum{
 
 
 
-
+        //Records the players input
         String result = JOptionPane.showInputDialog(null, "Question "+time+":  " + n1
                 + " + " + n2+ "=");
 
@@ -64,7 +69,7 @@ public class RandomNum{
         int res = Integer.parseInt(CheckStr(result));
 
 
-        //ckecks if question is correct
+        //Checks if the players imput is correct, if it is adds the amnt correct with a correlating message
 if(res== n1+n2)
     {
         JOptionPane.showMessageDialog(parent, "Dude what. How did you get it right?");
@@ -78,7 +83,8 @@ if(res== n1+n2)
 
 
     }
-
+    //Subtraction method that does the exact same thing as the addition method
+    //But instead of checking via adding two ints it subtracts them
     public static void subtraction(int time)
     {
         int n1 = (int)(Math.random()*10);
@@ -107,7 +113,8 @@ if(res== n1+n2)
 
 
     }
-
+    //A try catch method that closes the game when the user types exit
+    //If they type something else it will return -1 instead of whatever they put in attempt that would normally crash the game
     public static String CheckStr(String input)
     {
         try {
